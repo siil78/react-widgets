@@ -42,7 +42,7 @@ function render(instanceId, langCode, origin, cb) {
   // Do widget stuff
 }
 
-window.renderExampleWidget = render;
+window.renderReactWidgets = render;
 ```
 
 ### Loading assets
@@ -55,7 +55,7 @@ The `main.js` library has the responsibility to load any asset from the `build/m
 
 This way you can leave the `PUBLIC_URL` variable empty for local development, but, once uploaded to the registry, the production build of the widget will know where it can locate the assets on the registry. More information about the `PUBLIC_URL` parameter can be found [here](https://github.com/js-widgets/widget-registry-boilerplate/wiki/Deployment-process#the-widget-building-process).
 
-If you are using the [Example Widget](https://github.com/js-widgets/example-widget) as a base for your widget, you would need to load assets like this:
+If you are using the [Example Widget](https://github.com/js-widgets/react-widgets) as a base for your widget, you would need to load assets like this:
 
 ```
 import logo from 'assets/images/logo.png';

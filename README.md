@@ -2,7 +2,7 @@
 
 This example contains documentation and example code for creating widgets using React.
 
-[View the demo](https://js-widgets.github.io/example-widget/index.html)
+[View the demo](https://js-widgets.github.io/react-widgets/index.html)
 
 ## Requirements
 
@@ -11,11 +11,11 @@ This example contains documentation and example code for creating widgets using 
 
 ## Getting started
 
-1. On the [example-widget](https://github.com/js-widgets/example-widget) project page click the **"Use this template"** button to setup a new widget.
+1. On the [react-widgets](https://github.com/js-widgets/react-widgets) project page click the **"Use this template"** button to setup a new widget.
 2. Give the new repository a **name** and a **description** and then click the "**Create repository from template**" button.
-3. Clone the new repository and change the project [**name**](https://github.com/js-widgets/example-widget/blob/master/package.json#L2), [**version**](https://github.com/js-widgets/example-widget/blob/master/package.json#L3), and [**homepage**](https://github.com/js-widgets/example-widget/blob/master/package.json#L4) inside **package.json**.
-4. Change the name of the [widget render function](https://github.com/js-widgets/example-widget/blob/master/src/index.js#L35)(`renderExampleWidget`) in **src/index.js**. _Note: It is recommended to use something unique to the widget in order to avoid potential conflicts with other widgets, like the widget repository name._
-5. Change the [**renderFunctionName**](https://github.com/js-widgets/example-widget/blob/master/src/public/index.html#L20) in the header of **public/index.html** to match the designated widget render function from the previous step (i.e. `renderExampleWidget`)
+3. Clone the new repository and change the project [**name**](https://github.com/js-widgets/react-widgets/blob/master/package.json#L2), [**version**](https://github.com/js-widgets/react-widgets/blob/master/package.json#L3), and [**homepage**](https://github.com/js-widgets/react-widgets/blob/master/package.json#L4) inside **package.json**.
+4. Change the name of the [widget render function](https://github.com/js-widgets/react-widgets/blob/master/src/index.js#L35)(`renderReactWidgets`) in **src/index.js**. _Note: It is recommended to use something unique to the widget in order to avoid potential conflicts with other widgets, like the widget repository name._
+5. Change the [**renderFunctionName**](https://github.com/js-widgets/react-widgets/blob/master/src/public/index.html#L20) in the header of **public/index.html** to match the designated widget render function from the previous step (i.e. `renderReactWidgets`)
 6. Install the project dependencies using `npm install`
 7. Run the project locally using `npm start`
 
@@ -37,13 +37,14 @@ this widget. It contains the following keys:
 | status                   | yes      | stable                                 | One of `stable`, `beta`, `wip`, or `deprecated`.                                               |
 
 ### Configurable widgets
+
 Configuration parameters are specified during the embed process. Drupal will create a form element
 automatically to gather those parameters in the editorial screens. For the CMS to know what form
 element to use, the widget definition needs to include a [JSON Schema](https://json-schema.org)
 definition for every parameter.
 
 This repository contains an example of a configurable parameter. In this case it's the text of the
-button. This is [described in `widget.json`](https://github.com/js-widgets/example-widget/blob/master/widget.json#L20-L36) as:
+button. This is [described in `widget.json`](https://github.com/js-widgets/react-widgets/blob/master/widget.json#L20-L36) as:
 
 ```json
   "settingsSchema": {
@@ -65,7 +66,7 @@ button. This is [described in `widget.json`](https://github.com/js-widgets/examp
   },
 ```
 
-And then accessed in the [widget code `Widget.jsx`](https://github.com/js-widgets/example-widget/blob/master/src/components/Widget.jsx#L25):
+And then accessed in the [widget code `Widget.jsx`](https://github.com/js-widgets/react-widgets/blob/master/src/components/Widget.jsx#L25):
 
 ```jsx
 <p className="is-size-6 pb-4">
@@ -84,7 +85,8 @@ automatically.
 
 For each dependency you will need to:
 
-1. [Tell Webpack to not include the library](https://github.com/js-widgets/example-widget/blob/master/craco.config.js#L32-L35) in the resulting JS file(s) for this widget.
+1. [Tell Webpack to not include the library](https://github.com/js-widgets/react-widgets/blob/master/craco.config.js#L32-L35) in the resulting JS file(s) for this widget.
+
 ```js
     // webpack.config.js or craco.config.js
     externals: {
@@ -94,7 +96,9 @@ For each dependency you will need to:
     },
     // ...
 ```
-1. [Tell the widget registry (in `widget.json`)](https://github.com/js-widgets/example-widget/blob/master/widget.json#L37-L46), and ultimately the CMS integrations where to find these libraries that were excluded.
+
+1. [Tell the widget registry (in `widget.json`)](https://github.com/js-widgets/react-widgets/blob/master/widget.json#L37-L46), and ultimately the CMS integrations where to find these libraries that were excluded.
+
 ```json
 "externalPeerDependencies": {
     "react": {"src": "https://unpkg.com/react@^17/umd/react.production.min.js"},
@@ -126,7 +130,7 @@ Projects embedding widgets should include the [loader script](https://js-widgets
 ></script>
 ```
 
-- [See an example](https://github.com/js-widgets/example-widget/blob/master/src/public/index.html#L12) of the loader script implementation.
+- [See an example](https://github.com/js-widgets/react-widgets/blob/master/src/public/index.html#L12) of the loader script implementation.
 
 Remember to use your version of the widget registry instead of `widget-registry-boilerplate`.
 
@@ -134,8 +138,8 @@ Remember to use your version of the widget registry instead of `widget-registry-
 
 ```js
 document.loadWidget({
-  renderFunctionName: 'renderExampleWidget',
-  instanceId: 'example-widget-1',
+  renderFunctionName: 'renderReactWidgets',
+  instanceId: 'react-widgets-1',
   language: 'de',
   onRenderFinish: (renderedElement) => {
     alert('Render process finished.');
@@ -143,42 +147,42 @@ document.loadWidget({
 });
 ```
 
-- [See an example](https://github.com/js-widgets/example-widget/blob/master/src/public/index.html#L14) of the `loadWidget()` function.
+- [See an example](https://github.com/js-widgets/react-widgets/blob/master/src/public/index.html#L14) of the `loadWidget()` function.
 
 Within the `<body>` tag add the instanceId div wherever you want this widget to render.
 
 ```html
-<div id="example-widget-1" data-button-text="foobar"></div>
+<div id="react-widgets-1" data-button-text="foobar"></div>
 ```
 
-- [See an example](https://github.com/js-widgets/example-widget/blob/master/src/public/index.html#L79) of the widget placement implementation.
+- [See an example](https://github.com/js-widgets/react-widgets/blob/master/src/public/index.html#L79) of the widget placement implementation.
 
 #### `document.loadWidgets()`
 
 ```js
 document.loadWidgets({
   'widget-1': {
-    renderFunctionName: 'renderExampleWidget',
-    instanceId: 'example-widget-1',
+    renderFunctionName: 'renderReactWidgets',
+    instanceId: 'react-widgets-1',
   },
   'widget-2': {
-    renderFunctionName: 'renderExampleWidget',
-    instanceId: 'example-widget-2',
+    renderFunctionName: 'renderReactWidgets',
+    instanceId: 'react-widgets-2',
   },
 });
 ```
 
 ```html
-<div id="example-widget-1" data-button-text="foo"></div>
-<div id="example-widget-2" data-button-text="bar"></div>
+<div id="react-widgets-1" data-button-text="foo"></div>
+<div id="react-widgets-2" data-button-text="bar"></div>
 ```
 
 #### Parameters
 
 | Name               | Required | Default                  | Example                 | Description                                                               |
 | ------------------ | -------- | ------------------------ | ----------------------- | ------------------------------------------------------------------------- |
-| renderFunctionName | yes      |                          | `renderExampleWidget`   | The render function callback.                                             |
-| instanceId         | yes      |                          | `example-widget-1`      | The already present HTML element ID where the react app will be rendered. |
+| renderFunctionName | yes      |                          | `renderReactWidgets`    | The render function callback.                                             |
+| instanceId         | yes      |                          | `react-widgets-1`       | The already present HTML element ID where the react app will be rendered. |
 | language           | no       | en                       | de                      | The language code for internationalization purposes.                      |
 | origin             | no       | `window.location.origin` | https://www.example.org | Protocol and hostname where a JSONAPI endpoint is available.              |
 | onRenderFinish     | no       |                          |                         | A callback that executes after the widget has been rendered.              |
@@ -199,15 +203,15 @@ class Widget extends Component {
 export default Widget;
 ```
 
-- [See an example](https://github.com/js-widgets/example-widget/blob/master/src/components/Widget.js#L25) of the `getAttribute()` method.
+- [See an example](https://github.com/js-widgets/react-widgets/blob/master/src/components/Widget.js#L25) of the `getAttribute()` method.
 
 #### DIV attributes
 
 ```html
-<div id="example-widget-1" data-button-text="Hello world!"></div>
+<div id="react-widgets-1" data-button-text="Hello world!"></div>
 ```
 
-- [See an example](https://github.com/js-widgets/example-widget/blob/master/src/public/index.html#L79) of the widget attribute implementation.
+- [See an example](https://github.com/js-widgets/react-widgets/blob/master/src/public/index.html#L79) of the widget attribute implementation.
 
 #### Query string values
 
@@ -227,7 +231,7 @@ The boilerplate widget has built-in translation support using the **react-intl**
 <FormattedMessage id="App.welcomeMsg" defaultMessage="Welcome!" />
 ```
 
-- [See an example](https://github.com/js-widgets/example-widget/blob/master/src/components/Widget.js#L15) of the `FormattedMessage` component.
+- [See an example](https://github.com/js-widgets/react-widgets/blob/master/src/components/Widget.js#L15) of the `FormattedMessage` component.
 
 Create all translation messages in `src/messages.js`, following the provided example. Generate locales using the `npm run build:locales` command. This will scan `src/messages.js` for translatable strings and compile them into JSON files for translation under **src/locales/\*.json**.
 
