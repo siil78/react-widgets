@@ -2,7 +2,7 @@
 
 This example contains documentation and example code for creating widgets using React.
 
-[View the demo](https://js-widgets.github.io/react-widgets/index.html)
+[View the demo](https://siil78.github.io/react-widgets/index.html)
 
 ## Requirements
 
