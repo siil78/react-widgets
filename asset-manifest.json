@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "https://js-widgets.github.io/example-widget/css/main.css",
-    "main.js": "https://js-widgets.github.io/example-widget/js/main.js",
-    "main.js.map": "https://js-widgets.github.io/example-widget/js/main.js.map",
-    "css/main.css.map": "https://js-widgets.github.io/example-widget/css/main.css.map",
-    "index.html": "https://js-widgets.github.io/example-widget/index.html",
-    "js/main.js.LICENSE.txt": "https://js-widgets.github.io/example-widget/js/main.js.LICENSE.txt",
-    "static/css/main.8343b28c.css.map": "https://js-widgets.github.io/example-widget/static/css/main.8343b28c.css.map"
+    "main.css": "https://siil78.github.io/react-widgets/css/main.css",
+    "main.js": "https://siil78.github.io/react-widgets/js/main.js",
+    "main.js.map": "https://siil78.github.io/react-widgets/js/main.js.map",
+    "css/main.css.map": "https://siil78.github.io/react-widgets/css/main.css.map",
+    "index.html": "https://siil78.github.io/react-widgets/index.html",
+    "js/main.js.LICENSE.txt": "https://siil78.github.io/react-widgets/js/main.js.LICENSE.txt",
+    "static/css/main.843e9450.css.map": "https://siil78.github.io/react-widgets/static/css/main.843e9450.css.map"
   },
   "entrypoints": [
-    "static/css/main.8343b28c.css",
+    "static/css/main.843e9450.css",
     "css/main.css",
     "js/main.js"
   ]
